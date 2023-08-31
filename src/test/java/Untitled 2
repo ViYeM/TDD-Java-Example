@@ -1,0 +1,32 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RelogioTest {
+
+    @Test
+    public void testCriacaoRelogio() {
+        Relogio relogio = new Relogio();
+        assertNotNull(relogio);
+    }
+
+    @Test
+    public void testProgramarHorario() {
+        Relogio relogio = new Relogio();
+        relogio.programarHorario(10, 30, 0);
+        assertEquals("10:30:00", relogio.obterHorario());
+    }
+
+    @Test
+    public void testReiniciarMeiaNoite() {
+        Relogio relogio = new Relogio();
+        relogio.reiniciarMeiaNoite();
+        assertEquals("00:00:00", relogio.obterHorario());
+    }
+
+    @Test
+    public void testFormato24Horas() {
+        Relogio relogio = new Relogio();
+        relogio.programarHorario(15, 45, 0);
+        assertEquals("15:45:00", relogio.obterHorario());
+    }
+}
